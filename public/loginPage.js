@@ -2,7 +2,7 @@
 
 let userForm = new UserForm();
 let formFill = (method, errorMessageBox) => (data) =>
-   method(data, (response) => response.success ? location.reload() : errorMessageBox(response.data)
+   method(data, (response) => response.success ? location.reload() : errorMessageBox(response.error)
    );
 
 userForm.loginFormCallback = formFill(
@@ -21,5 +21,3 @@ ApiConnector.login(
       password: "",
    },
 )
-
-

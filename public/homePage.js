@@ -30,10 +30,10 @@ function updateFavorites(data) {
 let requestHandler = (showFunc, errorMessageBox, method, message) => data => method(data, response => {
    if (response.success) {
       showFunc(response.data);
-      let totalMessage = response.data.request ? `${response.data}:` + message : message;
-      errorMessageBox.setMessage(!response.success, totalMessage);
+      let totalMessage = response.request ? `${response.data}:` + message : message;
+      errorMessageBox.setMessage(response.success, totalMessage);
    } else {
-      errorMessageBox.setMessage(!response.success, response.data);
+      errorMessageBox.setMessage(response.success, response.error);
    }
 });
 
